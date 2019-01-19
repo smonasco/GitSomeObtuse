@@ -9,11 +9,22 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 </head>
 <body>
-<div ng-controller="GitSomeCtrl"><!--
+<div ng-controller="GitSomeCtrl">
     <form class="form-horizontal">
-        <input type="text" ng-model="searchTerm">
-        <button class="btn" ng-click="doSearch()"><i class="icon-search"></i>Search</button>
-    </form>-->
+        <table>
+            <tr>
+                <td>
+                    <!-- a bit of repetition here. I could construct the buttons from a static array and find a way to
+                        alias getPage results, but this doesn't seem too bad.
+                    -->
+                    <button ng-disabled='!getPage("first")' class="btn btn-light" ng-click='reloadPage(getPage("first"))'>first</button>
+                    <button ng-disabled='!getPage("prev")' class="btn btn-light" ng-click='reloadPage(getPage("prev"))'>prev</button>
+                    <button ng-disabled='!getPage("next")' class="btn btn-light" ng-click='reloadPage(getPage("next"))'>next</button>
+                    <button ng-disabled='!getPage("last")' class="btn btn-light" ng-click='reloadPage(getPage("last"))'>last</button>
+                </td>
+            </tr>
+        </table>
+    </form>
     <table class="table table-striped">
         <tr>
             <td>Title</td>
