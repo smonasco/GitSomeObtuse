@@ -29,11 +29,13 @@
         <tr>
             <td>Title</td>
             <td>User</td>
+            <td>Assignee</td>
             <td>Body</td>
         </tr>
         <tr ng-repeat="issue in gitResult.data">
             <td><a href="{{issue.url}}">{{issue.title}}</a></td>
             <td><a href="{{issue.user.url}}"><img src="{{issue.user.avatar_url}}" height="42" width="42" />{{issue.user.login}}</a></td>
+            <td><a href="{{issue.assignee.url}}"><img ng-hide="!issue.assignee.avatar_url" src="{{issue.assignee.avatar_url}}" height="42" width="42" />{{issue.assignee.login}}</a></td>
             <td>{{issue.body}}</td>
         </tr>
     </table>
