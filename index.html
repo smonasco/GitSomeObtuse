@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="GitSome">
+<head>
+    <script type="text/javascript" src="http://code.angularjs.org/1.0.0rc4/angular-1.0.0rc4.min.js"></script>
+    <script type="text/javascript" src="http://code.angularjs.org/1.0.0rc4/angular-resource-1.0.0rc4.min.js"></script>
+
+    <script type="text/javascript" src="gitSome.js"></script>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+<div ng-controller="GitSomeCtrl"><!--
+    <form class="form-horizontal">
+        <input type="text" ng-model="searchTerm">
+        <button class="btn" ng-click="doSearch()"><i class="icon-search"></i>Search</button>
+    </form>-->
+    <table class="table table-striped">
+        <tr>
+            <td>Title</td>
+            <td>User</td>
+            <td>Body</td>
+        </tr>
+        <tr ng-repeat="issue in gitResult.data">
+            <td><a href="{{issue.url}}">{{issue.title}}</a></td>
+            <td><a href="{{issue.user.url}}"><img src="{{issue.user.avatar_url}}" height="42" width="42" />{{issue.user.login}}</a></td>
+            <td>{{issue.body}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
